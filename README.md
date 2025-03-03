@@ -1,2 +1,2 @@
 # generalizeformer
-WACV Paper code
+WACV Paper code for GeneralizeFormer: Layer-Adaptive Model Generation across Test-Time Distribution Shifts
