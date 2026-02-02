@@ -2170,27 +2170,7 @@ def test(epoch):
 
     acc_tr_net2 = 100.0 * correct / total
 
-    acc = max(acc_tr_net1, acc_tr_net2)
-    if acc > best_valid_acc:
-        best_valid_acc = acc
 
-        print("Saving best model... %f" % acc)
-        state = {
-            "net": net.state_dict(),
-            "tr_net": tr_net.state_dict(),
-            "tr_net_gen2": tr_net_gen2.state_dict(),
-            "model_gen_acc": acc,
-            "epoch": epoch,
-        }
-
-        checkpoint_dir = os.path.join(MODEL_DIR, "checkpoint")
-        if not os.path.exists(checkpoint_dir):
-            os.makedirs(checkpoint_dir)
-        torch.save(state, os.path.join(checkpoint_dir, "best_model.pth"))
-        wandb.summary["model_path"] = os.path.join(
-            checkpoint_dir, "best_model.pth"
-        )
-        wandb.summary["model_path_epoch"] = epoch
 
 
 def normal_test(epoch):
